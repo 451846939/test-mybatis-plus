@@ -1,0 +1,78 @@
+logging:
+  level:
+    org.springframework: DEBUG
+server:
+  port: 8081
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.example.test.test.entity
+  global-config:
+    refresh: true
+    db-config:
+      id-type: input
+      db-type: mysql
+      field-strategy: not_empty
+      table-underline: true
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+
+#plus 2.X
+#mybatis-plus:
+#  mapper-locations: classpath*:/mapper/**/*Mapper.xml
+#  #实体扫描，多个package用逗号或者分号分隔
+#  typeAliasesPackage: com.example.test.test.entity
+#  global-config:
+#    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+#    id-type: 3
+#    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+#    field-strategy: 2
+#    #驼峰下划线转换
+#    db-column-underline: true
+#    #刷新mapper 调试神器
+#    refresh-mapper: true
+#    #逻辑删除配置（下面3个配置）
+#    logic-delete-value: 1
+#    logic-not-delete-value: 0
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    cache-enabled: false
+
+spring:
+  jpa:
+    database: mysql
+    show-sql: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    password: root
+    url: jdbc:mysql://192.168.245.128:3306/test?allowMultiQueries=true
+    username: root
+      # 下面为连接池的补充设置，应用到上面所有数据源中
+    druid:
+      max-active: 20
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 3
+      remove-abandoned: true
+      remove-abandoned-timeout: 180
+      connection-properties:
+      clientEncoding: UTF-8
+      test-while-idle: false
+  redis:
+    host: 192.168.245.128
+    port: 6379
+    lettuce:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 900
+        # 连接池中的最大空闲连接
+        max-idle: 800
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: 3600s
+        # 连接池中的最小空闲连接
+        min-idle: 50
