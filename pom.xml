@@ -83,13 +83,13 @@
             <!--<version>3.0.1</version>-->
         <!--</dependency>-->
     </dependencies>
-    <repositories>
-        <repository>
-            <id>nexus-uoko</id>
-            <name>Nexus Release Repository</name>
-            <url>http://172.16.0.141:8081/nexus/content/groups/public/</url>
-        </repository>
-    </repositories>
+    <!--<repositories>-->
+        <!--<repository>-->
+            <!--<id>nexus-uoko</id>-->
+            <!--<name>Nexus Release Repository</name>-->
+            <!--<url>http://172.16.0.141:8081/nexus/content/groups/public/</url>-->
+        <!--</repository>-->
+    <!--</repositories>-->
 
     <build>
         <plugins>

@@ -33,30 +33,19 @@ public @interface CopyField {
      */
     String copyFieldName() default "";
     /**
-     * @description 复制后为null的默认值，没有设置则不复制该字段
-     * @author beiluo
-     * @date 14:59 2019/3/29
-     * @return java.lang.String
-     * @param
-     * @version V1.0
-     */
-    String defaultValue() default "";
-    /**
      * @description 分组，根据不同的分组复制不同分组下的copyFieldName() {@link CopyField#copyFieldName()}
+     * 该class必须为映射的类的class
      * @author beiluo
      * @date 15:00 2019/3/29
      * @return java.lang.Class<?>[]
      * @param
      * @version V1.0
      */
-    Class<?> [] group() default {};
+    Class<?> group() default Class.class;
+
     /**
-     * @description 是否复制null
-     * @author beiluo
-     * @date 17:14 2019/3/29
-     * @return boolean
-     * @param
-     * @version V1.0
+     * 是否需要复制
+     * @return
      */
-    boolean copyNull() default true;
+    boolean copy() default true;
 }
