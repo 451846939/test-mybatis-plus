@@ -22,14 +22,14 @@ public class Test {
 //        copyTest2(users);
 //        copyTest3(users);
 //        UsersDTO usersDTO = new UsersDTO();
-//        copyTest4(users);
-        long start = System.currentTimeMillis();
-        for (int i = 0; i < 5000; i++) {
-            Object o = CopyUtils.copyObjOnAnnotation(users, UsersDTO.class);
+        copyTest4(users);
+//        long start = System.currentTimeMillis();
+//        for (int i = 0; i < 5000; i++) {
+//            Object o = CopyUtils.copyObjOnAnnotation(users, UsersDTO.class);
 //            System.out.println(o);
-        }
-        long end = System.currentTimeMillis();
-        System.out.println(end-start);
+//        }
+//        long end = System.currentTimeMillis();
+//        System.out.println(end-start);
     }
 
     private static void copyTest4(Users users) {
