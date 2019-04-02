@@ -8,6 +8,7 @@ import org.apache.commons.lang3.reflect.FieldUtils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -206,6 +207,7 @@ public class CopyUtils {
             Field[] asmFields = FieldUtils.getAllFields(copyOnObj.getClass());
             if (tFields!=null&&asmFields!=null&&tFields.length != 0 && asmFields.length != 0) {
                  Arrays.stream(tFields)
+                         .filter(field -> !Modifier.isFinal(field.getModifiers()))
                         //筛选出需要复制的字段名字
                         .filter(field -> needCopyFiledNameFilter(copyFiledName, field))
                         //去除不复制的字段
