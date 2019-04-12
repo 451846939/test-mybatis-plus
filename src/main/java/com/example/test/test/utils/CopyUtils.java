@@ -250,7 +250,7 @@ public class CopyUtils {
                 throw new RuntimeException("CopyFieldGroups need CopyField");
             }
         }else {
-            CopyField copyField = copyObjFiled.getAnnotation(CopyField.class);
+            CopyField copyField = copyOnObjFiled.getAnnotation(CopyField.class);
             copyFieldByAnnotation0(copyObj, copyOnObj, copyObjFiled, copyOnObjFiled,copyField);
         }
 
