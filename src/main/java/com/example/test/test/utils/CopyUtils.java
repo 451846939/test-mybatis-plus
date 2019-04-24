@@ -64,7 +64,7 @@ public class CopyUtils {
      * @version V1.0
      */
     public static <T> Object copyObj(T t, Class clazz) {
-        return copyObjNotNull(t,clazz);
+        return copyObjNotNull(t,clazz,null);
     }
 
     /**
@@ -131,7 +131,9 @@ public class CopyUtils {
     public static <T> Object copyObjNotNull(final T t,final Class clazz,final String... filedName) {
         return copyObj(t,clazz,false,null,filedName);
     }
-
+    public static <T, M> M copyObjNotNull(T copyObj, M tradeRefundDTO) {
+        return copyObj(copyObj,tradeRefundDTO,false,false,null,null);
+    }
     /**
      * 复制对象
      * @param t
